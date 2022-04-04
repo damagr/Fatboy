@@ -38,7 +38,7 @@ client.once("ready", () => {
 
 client.on("message", message => {
     if (message.author.bot) return;
-    if (message.content.toLowerCase().includes(cinco[0]) || message.content.toLowerCase().includes(cinco[1])) message.channel.send('Por el culo te la hinco!');
+    if (message.content.toLowerCase().includes(cinco[0]) || message.content.toLowerCase().includes(cinco[1])) message.channel.send('Por el culo te la hinco.');
     if (message.content.startsWith(prefix)) return;
     else if (message.content.startsWith(`${prefix}help`)) message.channel.send(helpMessage);
     else message.channel.send(errorMessage);
