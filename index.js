@@ -16,7 +16,7 @@ function keepAlive() {
 
 const prefix = "!"
 const helpMessage = "```md \n-Si tu frase termina con un cinco el bot te sorprenderá.```";
-const errorMessage = "```md \nComando inválido, utiliza !help para saber los comandos disponibles.```";
+const errorMessage = "```\nComando inválido, utiliza !help para saber los comandos disponibles.```";
 const cinco = ['5', 'cinco']
 
 const client = new Client({
