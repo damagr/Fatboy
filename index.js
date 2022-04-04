@@ -44,12 +44,11 @@ client.on("message", message => {
     else message.channel.send(errorMessage);
 });
 
-function checkCinco(message){
-  let cleanMessage = message.content.toLowerCase();
-  let dep = false;
-  if (cleanMessage.includes(cinco[0]) || cleanMessage.includes(cinco[1])) dep = true;
-  if ((cleanMessage.includes(cinco[0]) || cleanMessage.includes(cinco[1])) && cleanMessage.includes(cinco[2])) dep = false;
-  return dep;
+function checkCinco(message) {
+    let cleanMessage = message.content.toLowerCase().replace('15', '');
+    let dep = false;
+    if (cinco.map(item => cleanMessage.includes(item) ? dep = true : ''));
+    return dep;
 }
 
 keepAlive();
