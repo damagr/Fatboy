@@ -5,7 +5,7 @@ import express from "express";
 const server = express();
 
 server.get('/', function (req, res) {
-    res.send('FatboyTracker')
+    res.send('Fatboy')
 });
 
 function keepAlive() {
@@ -33,10 +33,7 @@ client.once("ready", () => {
     const guild = client.guilds.cache.get(SERVER_ID);
     const BOT = guild.members.cache.get(BOT_ID);
 
-    setInterval(async () => {
-        getPrice();
-        BOT.user.setActivity(lastTokenID + " " + lastPrice + '$', { type: "WATCHING" }).catch(console.error);
-    }, 7500);
+    BOT.user.setActivity('Buffet libre', { type: "WATCHING" }).catch(console.error);
 });
 
 client.on("message", message => {
