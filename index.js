@@ -1,5 +1,5 @@
 import { Client, Intents } from "discord.js";
-import axios from "axios";
+/*import axios from "axios";*/
 import express from "express";
 
 const server = express();
