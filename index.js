@@ -15,9 +15,9 @@ function keepAlive() {
 }
 
 const prefix = "!"
-const helpMessage = "```md \n-Si tu frase termina con un cinco el bot te sorprenderá.```";
-const errorMessage = "```\nComando inválido, utiliza !help para saber los comandos disponibles.```";
-const cinco = ['5', 'cinco']
+const helpMessage = "```md\n - Si tu frase termina con un cinco el bot te sorprenderá.```";
+const errorMessage = "```md\n Comando inválido, utiliza !help para saber los comandos disponibles.```";
+const cinco = ['5', 'cinco', '15']
 
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS],
@@ -38,11 +38,19 @@ client.once("ready", () => {
 
 client.on("message", message => {
     if (message.author.bot) return;
-    if (message.content.toLowerCase().includes(cinco[0]) || message.content.toLowerCase().includes(cinco[1])) message.channel.send('Por el culo te la hinco.');
-    if (message.content.startsWith(prefix)) return;
+    if (checkCinco(message)) message.channel.send('Por el culo te la hinco.');
+    if (!message.content.startsWith(prefix)) return;
     else if (message.content.startsWith(`${prefix}help`)) message.channel.send(helpMessage);
     else message.channel.send(errorMessage);
 });
+
+function checkCinco(message){
+  let cleanMessage = message.content.toLowerCase();
+  let dep = false;
+  if (cleanMessage.includes(cinco[0]) || cleanMessage.includes(cinco[1])) dep = true;
+  if ((cleanMessage.includes(cinco[0]) || cleanMessage.includes(cinco[1])) && cleanMessage.includes(cinco[2])) dep = false;
+  return dep;
+}
 
 keepAlive();
 client.login(BOT_TOKEN);
