@@ -17,7 +17,8 @@ function keepAlive() {
 const prefix = "!"
 const helpMessage = "```md\n - Si tu frase termina con un cinco el bot te sorprenderá.```";
 const errorMessage = "```md\n Comando inválido, utiliza !help para saber los comandos disponibles.```";
-const cinco = ['5', 'cinco', '15']
+const cinco = ['5', 'cinco', '15'];
+const stop = ['<:', 'http']
 
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS],
@@ -45,11 +46,19 @@ client.on("message", message => {
 });
 
 function checkCinco(message) {
-    let cleanMessage = message.content.toLowerCase().replace('15', '');
-    let dep = false;
-    if (cinco.map(item => cleanMessage.includes(item) ? dep = true : ''));
-    return dep;
+  let cleanMessage = message.content.toLowerCase().replace('15', '');
+  let DEP = true;
+  let RIP = false;
+  stop.map(item => { if (message.content.startsWith(item)) DEP = false });
+  if (DEP) {
+      if (cinco.map(item => cleanMessage.includes(item) ? RIP = true : ''));
+      return RIP;
+  } else {
+      return DEP;
+  }
 }
 
 keepAlive();
 client.login(BOT_TOKEN);
+
+
