@@ -7,11 +7,13 @@ export const SERVER_ID = process.env["SERVER_ID"];
 export const prefix = "!"
 export const helpMessage = "```md\n - Si tu frase termina con un cinco el bot te sorprenderá.```";
 export const errorMessage = "```md\n Comando inválido, utiliza !help para saber los comandos disponibles.```";
+export const botActivity = "Buffet libre";
 
 /* Constantes personalizadas de las funciones */
 export const cinco = ["5", "cinco"];
 export const stop = ["<:", "http"];
 export const fatboysRole = '840177913033654285';
+export const fatboysChannel = '913377699161047081';
 export const birthDays = [
   {
     "Name": "Kai", 

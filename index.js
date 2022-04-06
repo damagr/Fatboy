@@ -1,5 +1,5 @@
-/*import axios from "axios";*/
 import { Client, Intents } from "discord.js";
+/*import axios from "axios";*/
 import moment from "moment";
 import express from "express";
 import * as FV from "./fatboyClass.js";
@@ -11,7 +11,7 @@ server.get("/", function (req, res) { res.send("Fatboy");});
 client.once("ready", () => {
   const guild = client.guilds.cache.get(FV.SERVER_ID);
   const BOT = guild.members.cache.get(FV.BOT_ID);
-  BOT.user.setActivity("Buffet libre", { type: "WATCHING" }).catch(console.error);
+  BOT.user.setActivity(FV.botActivity, { type: "WATCHING" }).catch(console.error);
   checkBirthday(moment().format("DD/MM"), client);
   setInterval(async () => {
     checkBirthday(moment().format("DD/MM"), client);
@@ -41,12 +41,12 @@ function checkCinco(message) {
 
 function checkBirthday(date, client){
   FV.birthDays.find(item => {
-    if(item.Birth == date) client.channels.cache.get("913377699161047081").send("Hoy es el cumpleaños de "+item.Name+`!!!\nFelicitadle gordos de mierda! <@&${FV.fatboysRole}>`);
+    if(item.Birth == date) client.channels.cache.get(FV.fatboysChannel).send("Hoy es el cumpleaños de " + item.Name + `!!!\nFelicitadle gordos de mierda! <@&${FV.fatboysRole}>`);
   });
 }
 
 function keepAlive() {
-  server.listen(3000, () => {
+  server.listen(5000, () => {
       console.log("Server is ready.");
   });
 }
