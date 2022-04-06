@@ -8,6 +8,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS]});
 const server = express();
 server.get("/", function (req, res) { res.send("Fatboy");});
 
+/* Instanciación del cliente de discord */ 
 client.once("ready", () => {
   const guild = client.guilds.cache.get(FV.SERVER_ID);
   const BOT = guild.members.cache.get(FV.BOT_ID);
@@ -22,14 +23,32 @@ client.once("ready", () => {
 });
 
 client.on("message", message => {
+  /* Comprobación de que el mensaje no sea del propio bot */
   if (message.author.bot) return;
+  /* Comprobación del cuerpo del mensaje*/
   if (checkCinco(message)) message.channel.send("Por el culo te la hinco.");
-  
+  /* Comprobación de si es un comando con prefijo */ 
   if (!message.cleanContent.startsWith(FV.prefix)) return;
-  else if (message.cleanContent.startsWith(`${FV.prefix}help`)) message.channel.send(FV.helpMessage);
-  else if (message.cleanContent.startsWith(`${FV.prefix}old`)) message.channel.send("El día de la creación del servidor fue el: "+moment(client.guilds.cache.get(FV.SERVER_ID).createdAt).format("DD-MM-YYYY"));
-  else if (message.cleanContent.startsWith(`${FV.prefix}blue`)) message.channel.send(FV.blue);
-  else if (message.cleanContent.startsWith(`${FV.prefix}pizza`)) message.channel.send(FV.pizza);
+  /* Comandos disponibles y sus casos */
+  switch(true){
+    case message.cleanContent.startsWith(`${FV.prefix}help`):
+      message.channel.send(FV.helpMessage);
+      break;
+    case message.cleanContent.startsWith(`${FV.prefix}old`):
+      message.channel.send("El día de la creación del servidor fue el: "+moment(client.guilds.cache.get(FV.SERVER_ID).createdAt).format("DD-MM-YYYY"));
+      break;
+    case message.cleanContent.startsWith(`${FV.prefix}blue`):
+      message.channel.send(FV.blue);
+      break;
+    case message.cleanContent.startsWith(`${FV.prefix}pizza`):
+      message.channel.send(FV.pizza);
+      break;
+    case message.cleanContent.startsWith(`${FV.prefix}perro`):
+      message.channel.send(FV.perro);
+      break;
+    default:
+      break;
+  }
 });
 
 function checkCinco(message) {
