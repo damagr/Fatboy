@@ -40,8 +40,8 @@ client.on("message", message => {
     case message.cleanContent.startsWith(`${FV.prefix}blue`):
       message.channel.send(FV.blue);
       break;
-    case message.cleanContent.startsWith(`${FV.prefix}pizza`):
-      message.channel.send(FV.pizza);
+    case message.cleanContent.startsWith(`${FV.prefix}pizzah`):
+      message.channel.send(FV.pizzah);
       break;
     case message.cleanContent.startsWith(`${FV.prefix}pizzak`):
       message.channel.send(FV.pizzak);
