@@ -13,7 +13,7 @@ export const botActivity = "Buffet libre";
 export const cinco = ["5", "cinco"];
 export const stop = ["<:", "http"];
 export const fatboysRole = '840177913033654285';
-export const fatboysChannel = '966334163840020500';
+export const fatboysChannel = '913377699161047081';
 export const birthDays = [
   {
     "Name": "Kai", 
