@@ -43,6 +43,9 @@ client.on("message", message => {
     case message.cleanContent.startsWith(`${FV.prefix}pizza`):
       message.channel.send(FV.pizza);
       break;
+    case message.cleanContent.startsWith(`${FV.prefix}pizzak`):
+      message.channel.send(FV.pizzak);
+      break;
     case message.cleanContent.startsWith(`${FV.prefix}perro`):
       message.channel.send(FV.perro);
       break;
